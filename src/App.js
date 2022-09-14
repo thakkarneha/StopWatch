@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./style.css";
 
-function App() {
+export default function App() {
+  const [initialData, setInitialdata] = useState(0);
+  const increaseValue = () => {
+    setInitialdata(initialData + 1);
+  };
+  const decreaseValue = () => {
+    setInitialdata(initialData);
+  };
+  const resetValue = () => {
+    setInitialdata(0);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{initialData}</h1>
+      <button
+        type="submit"
+        onClick={increaseValue}
+        className="btn btn-success btn-circle btn-sm"
+      >
+        start
+      </button>
+      <button
+        type="submit"
+        onClick={decreaseValue}
+        className="btn btn-danger btn-circle btn-sm"
+      >
+        Stop
+      </button>
+      <button
+        type="submit"
+        onClick={resetValue}
+        className="btn btn-dark btn-circle btn-sm"
+      >
+        Reset
+      </button>
     </div>
   );
 }
-
-export default App;
